@@ -1,27 +1,49 @@
-<h1>Sign Up</h1>
-
-<% if @user.errors.any? %>
-  <ol>
-    <% @user.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ol>
-<% end %>
-
-<%= form_for @user do |f| %>
-  <fieldset>
-    <%= f.label :email %>
-    <%= f.email_field :email, :required => true %>
-  </fieldset>
-  <fieldset>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </fieldset>
-  <fieldset>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </fieldset>
+<div class="form">
+  <div class="banner"> <h1 class="bannerHead">Sign Up</h1> </div>
 
 
-  <%= f.submit %>
-<% end %>
+
+
+
+
+  <div class="formBackground">
+    <div class="fill"></div>
+    <div class="buffer">
+      <% if @user.errors.any? %>
+        <ol class="error">
+          <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ol>
+      <% end %>
+      <%= form_for @user do |f| %>
+        <fieldset>
+          <%= f.label :email %>
+          <div class="input-container">
+            <%= f.email_field :email, :required => true %>
+          </div>
+        </fieldset>
+        <fieldset>
+          <%= f.label :password %>
+          <div class="input-container">
+            <%= f.password_field :password %>
+          </div>
+        </fieldset>
+        <fieldset>
+          <%= f.label :confirm %>
+          <div class="input-container">
+            <%= f.password_field :password_confirmation %>
+          </div>
+        </fieldset>
+
+        <div class="submitButton">
+          <%= f.submit %>
+        </div>
+      <% end %>
+
+      <div class="center">
+      <%= link_to 'Already a member? Sign in here!', login_path %>
+      </div>
+    </div>
+  </div>
+</div>
