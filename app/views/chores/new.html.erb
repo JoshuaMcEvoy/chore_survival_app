@@ -1,2 +1,39 @@
-<h1>Chores#new</h1>
-<p>Find me in app/views/chores/new.html.erb</p>
+<div class="form">
+  <div class="banner"><h1 class="bannerHead">Create Chores</h1></div>
+
+  <div class="formBackground">
+    <div class="fill"></div>
+    <div class="buffer">
+      <% if flash[:error].present? %>
+        <p class="error">
+          <%= flash[:error] %>
+        </p>
+      <% end %>
+
+      <%= form_tag chores_new_path do %>
+      <fieldset>
+        <%= label_tag :name %>
+        <div class="input-container">
+          <%= text_field_tag :name, nil%>
+        </div>
+      </fieldset>
+      <fieldset>
+        <%= label_tag :description %>
+        <div class="input-container">
+          <%= text_field_tag :description, nil %>
+        </div>
+      </fieldset>
+      <fieldset>
+        <%= label_tag :reward %>
+        <div class="input-container">
+          <%= text_field_tag :reward, nil %>
+        </div>
+      </fieldset>
+      <div class="submitButtonChores">
+        <%= submit_tag 'Create' %>
+      </div>
+      <% end  %>
+
+    </div>
+  </div>
+</div>

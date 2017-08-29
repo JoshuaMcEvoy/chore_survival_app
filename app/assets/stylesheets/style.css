@@ -106,6 +106,15 @@ fieldset > label {
   background: url(button.png) no-repeat top left;
 }
 
+.submitButtonChores {
+  position: absolute;
+  left: 81px;
+  bottom: -100px;
+  height: 80px;
+  width: 180px;
+  background: url(button.png) no-repeat top left;
+}
+
 .bannerHead {
   position: absolute;
   font-size: 53px;
