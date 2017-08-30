@@ -16,6 +16,10 @@ a {
   text-decoration: none;
 }
 
+.button {
+
+}
+
 .chore_button > a {
   color: white;
 }
@@ -129,6 +133,22 @@ fieldset > label {
   margin: 0 auto;
   height: 563px;
   width: 372px;
+}
+
+.img_feature {
+  position: absolute;
+  top: 30px;
+  left: 15px;
+  border-radius: 8px;
+}
+
+.img_feature_background {
+  position: relative;
+  background: url(img_feature_background.png) no-repeat left top;
+  width: 300px;
+  height: 208px;
+  top: -18px;
+  left: -9px;
 }
 
 .img_thumb {

@@ -23,18 +23,18 @@ class ChoresController < ApplicationController
   end
 
   def edit
-    @chore = Chore.find params[:id]
+    @chore = Chore.find params['id']
   end
 
   def update
-    chore = Chore.find_by :id => session[:chore_id] if session[:chore_id].present?
-    session[:chore_id] = nil unless @current_chore.present?
     chore = Chore.find params[:id]
     chore.update chore_params
-    redirect_to chores_index_path
+    redirect_to chores_path
   end
 
   def show
+    @chore = Chore.find params['id']
+
   end
 
   def pick_chore
@@ -42,7 +42,6 @@ class ChoresController < ApplicationController
   end
 
   def add
-
     user = User.find params['id']
     array = params['chore_id']
     array.each { |i| user.chores << (Chore.find i) }
@@ -55,8 +54,14 @@ class ChoresController < ApplicationController
 
   end
 
+  def destroy
+    chore = Chore.find params['id']
+    chore.destroy
+    redirect_to chores_path
+  end
+
   private
   def chore_params
-    params['chore'].permit(:name, :description, :reward)
+    params['chore'].permit(:name, :description, :reward, :image)
   end
 end

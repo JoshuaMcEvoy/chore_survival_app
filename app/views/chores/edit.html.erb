@@ -1,2 +1,47 @@
-<h1>Chores#edit</h1>
-<p>Find me in app/views/chores/edit.html.erb</p>
+<div class="form">
+  <div class="banner"><h1 class="bannerHead">Edit Chores</h1></div>
+
+  <div class="formBackground">
+    <div class="fill"></div>
+    <div class="buffer">
+      <% if flash[:error].present? %>
+        <p class="error">
+          <%= flash[:error] %>
+        </p>
+      <% end %>
+
+      <%= form_for @chore, :html => {:multipart => true} do |f| %>
+      <fieldset>
+        <%= f.label :name %>
+        <div class="input-container">
+          <%= f.text_field :name %>
+        </div>
+      </fieldset>
+      <fieldset>
+        <%= f.label :description %>
+        <div class="input-container">
+          <%= f.text_field :description %>
+        </div>
+      </fieldset>
+      <fieldset>
+        <%= f.label :reward %>
+        <div class="input-container">
+          <%= f.text_field :reward %>
+        </div>
+      </fieldset>
+      <fieldset>
+        <%= f.label :image %>
+        <div class="input-container">
+          <%= f.file_field :image, id: :image_link %>
+        </div>
+      </fieldset>
+
+      <div class="submitButtonChores">
+        <%= f.submit 'Update', :class=>'button'%>
+      </div>
+      <% end  %>
+
+
+    </div>
+  </div>
+</div>

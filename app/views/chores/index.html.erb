@@ -6,7 +6,7 @@
       <div class="buffer">
 
         <% @current_user.chores.each do |chores| %>
-          <%= link_to chores_path(chores.id) do %>
+          <%= link_to chore_path(chores.id) do %>
             <div class="chore_button">
               <%= cl_image_tag(chores.image, :width=>58, :height=>59, :gravity=>"face", :crop=>"crop", :class=>"img_thumb") unless chores.image.nil?%>
                 <p class="chore_p_name"><%= chores.name %></p>

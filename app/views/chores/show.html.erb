@@ -5,6 +5,17 @@
       <div class="fill"></div>
       <div class="buffer">
 
+        <div class="img_feature_background">
+          <%= cl_image_tag(@chore.image, :width=>260, :height=>142, :gravity=>"face", :crop=>"crop", :class=>"img_feature") unless @chore.image.nil?%>
+        </div>
+            <p class="chore_p_name"><%= @chore.name %></p>
+            <p class="chore_p_description"><%= @chore.description %></p>
+            <p class="chore_p_reward"><%= @chore.reward %></p>
+
+            <%= link_to "Edit chore", edit_chore_path(@chore) %>
+            <%= link_to "Delete chore", @chore, :method => :delete, :data => {:confirm => 'Are you sure?'} %>
+
+
       </div>
     </div>
   </div>
