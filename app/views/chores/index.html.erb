@@ -1,9 +1,23 @@
-<h1>Chores#index</h1>
-<p>Find me in app/views/chores/index.html.erb</p>
+<div class="form">
+  <div class="banner"><h1 class="bannerHead">Chores List</h1></div>
+
+    <div class="formBackground">
+      <div class="fill"></div>
+      <div class="buffer">
+
+        <% @current_user.chores.each do |chores| %>
+          <%= link_to chores_path(chores.id) do %>
+            <div class="chore_button">
+              <%= cl_image_tag(chores.image, :width=>58, :height=>59, :gravity=>"face", :crop=>"crop", :class=>"img_thumb") unless chores.image.nil?%>
+                <p class="chore_p_name"><%= chores.name %></p>
+                <p class="chore_p_description"><%= chores.description %></p>
+                <p class="chore_p_reward"><%= chores.reward %></p>
+            </div>
+          <% end %>
+        <% end %>
 
 
-<ul>
-  <% @current_user.chores.each do |chores| %>
-    <li><%= link_to(chores.name, chores_show_path(chores.id)) %></li>
-  <% end %>
-</ul>
+      </div>
+    </div>
+  </div>
+</div>

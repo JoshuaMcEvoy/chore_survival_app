@@ -10,27 +10,34 @@
         </p>
       <% end %>
 
-      <%= form_tag chores_new_path do %>
+      <%= form_for @chore, :html => {:multipart => true} do |f| %>
       <fieldset>
-        <%= label_tag :name %>
+        <%= f.label :name %>
         <div class="input-container">
-          <%= text_field_tag :name, nil%>
+          <%= f.text_field :name%>
         </div>
       </fieldset>
       <fieldset>
-        <%= label_tag :description %>
+        <%= f.label :description %>
         <div class="input-container">
-          <%= text_field_tag :description, nil %>
+          <%= f.text_field :description %>
         </div>
       </fieldset>
       <fieldset>
-        <%= label_tag :reward %>
+        <%= f.label :reward %>
         <div class="input-container">
-          <%= text_field_tag :reward, nil %>
+          <%= f.text_field :reward %>
         </div>
       </fieldset>
+      <fieldset>
+        <%= f.label :image %>
+        <div class="input-container">
+          <%= f.file_field :image, id: :image_link %>
+        </div>
+      </fieldset>
+
       <div class="submitButtonChores">
-        <%= submit_tag 'Create' %>
+        <%= f.submit 'Create' %>
       </div>
       <% end  %>
 

@@ -1,0 +1,31 @@
+<div class="form">
+  <div class="banner"><h1 class="bannerHead">Assign Chore</h1></div>
+
+    <div class="formBackground">
+      <div class="fill"></div>
+      <div class="buffer">
+
+        <%= form_tag chores_assign_path do %>
+          <fieldset>
+            <%= label_tag :search %>
+            <div class="input-container">
+              <%= email_field_tag :email, nil %>
+            </div>
+          </fieldset>
+          <%= submit_tag 'Search' %>
+        <% end %>
+
+      <% if @user.present?  %>
+        <%= link_to chores_pick_chore_path(:id=>@user.id) do %>
+          <div class="user_button">
+            <p><%= @user.email %></p>
+          </div>
+        <% end %>
+      <% else %>
+        <p>Search for a friend by their email address</p>
+      <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

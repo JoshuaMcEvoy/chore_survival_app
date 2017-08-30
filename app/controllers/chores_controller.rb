@@ -11,12 +11,14 @@ class ChoresController < ApplicationController
   end
 
   def create
+    cloudinary = Cloudinary::Uploader.upload( params['chore']['image'] )
     @chore = Chore.create chore_params
+    @chore.image = cloudinary["url"]
     @current_user.chores << @chore
     if
-      redirect_to chores_index_path
+      redirect_to chores_path
     else
-      redirect_to chores_new_path
+      redirect_to new_chores_path
     end
   end
 
@@ -29,14 +31,32 @@ class ChoresController < ApplicationController
     session[:chore_id] = nil unless @current_chore.present?
     chore = Chore.find params[:id]
     chore.update chore_params
-    redirect_to root_path
+    redirect_to chores_index_path
   end
 
   def show
   end
 
+  def pick_chore
+    @chores = Chore.all
+  end
+
+  def add
+
+    user = User.find params['id']
+    array = params['chore_id']
+    array.each { |i| user.chores << (Chore.find i) }
+    redirect_to chores_path
+  end
+
+  def get_user
+    @user = User.find_by(email: params[:email])
+    render :assign
+
+  end
+
   private
   def chore_params
-    params.permit(:name, :description, :reward)
+    params['chore'].permit(:name, :description, :reward)
   end
 end

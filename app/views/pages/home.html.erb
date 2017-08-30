@@ -1,15 +1,14 @@
 <div class="form">
-  <div class="banner"><h1 class="bannerHead">User logged in page</h1></div>
+  <div class="banner"><h1 class="bannerHead">Home</h1></div>
 
   <div class="formBackground">
     <div class="fill"></div>
     <div class="buffer">
 
 
-    <%= link_to 'Chores', chores_index_path %>
-    <%= link_to 'Create Chore', chores_new_path %>
-
-
+    <%= link_to 'Chores', chores_path %>
+    <%= link_to 'Create Chore', new_chore_path %>
+    <%= link_to 'Assign Chore', chores_assign_path %>
 
 
     <% if @current_user.present? %>

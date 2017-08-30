@@ -1,11 +1,27 @@
 body {
   font-family: 'Concert One', cursive;
   color: white;
+  -webkit-text-stroke: .5px #B07C4F;
+  font-size: 20px;
   background: url(titlescreen_background.jpg) no-repeat left center;
 }
 
 fieldset {
   border: none;
+  margin: 0px;
+  padding: 0px 0px 0px 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.chore_button > a {
+  color: white;
+}
+
+.chore_button > a:visited {
+  color: white;
 }
 
 .banner {
@@ -26,6 +42,7 @@ fieldset {
 .buffer {
   position: relative;
   padding-left: 36px;
+  width: 281px;
 }
 
 .center {
@@ -51,6 +68,40 @@ fieldset > label {
   font-size: 30px;
   -webkit-text-stroke: .5px #B07C4F;
 
+}
+
+
+.chore_button {
+  display: block;
+  position: relative;
+  background: url(chore_button.png) no-repeat left top;
+  height: 89px;
+  width: 270px;
+}
+
+.chore_p_name {
+  font-size: 11px;
+  position: absolute;
+  top: 0px;
+  left: 85px;
+}
+
+.chore_p_description {
+  color: white;
+  text-decoration: none;
+  font-size: 11px;
+  position: absolute;
+  top: 26px;
+  left: 85px;
+}
+
+.chore_p_reward {
+  color: white;
+  text-decoration: none;
+  font-size: 11px;
+  position: absolute;
+  top: 0px;
+  left: 200px;
 }
 
 .error {
@@ -80,6 +131,13 @@ fieldset > label {
   width: 372px;
 }
 
+.img_thumb {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  border-radius: 5px;
+}
+
 .input-container {
   /*background-color: black;*/
   /*display: inline-block;*/
@@ -96,6 +154,8 @@ fieldset > label {
   border:none;
   background:transparent;
 }
+
+
 
 .submitButton {
   position: absolute;
@@ -115,9 +175,30 @@ fieldset > label {
   background: url(button.png) no-repeat top left;
 }
 
+.user_button {
+  position: relative;
+  background: url(user_button.png) no-repeat left top;
+  height: 62px;
+  width: 270px;
+}
+
+.user_button > p {
+  position: absolute;
+  font-size: 20px;
+  top: -8px;
+  left: 53px;
+  -webkit-text-stroke: .5px #B07C4F;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .bannerHead {
+  width: 397px;
   position: absolute;
   font-size: 53px;
-  left: 205px;
-  top: -26px;
+  left: 101px;
+  line-height: 97px;
+  vertical-align: middle;
+  top: -35px;
 }
