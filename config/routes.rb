@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  patch '/groups/:id' => 'groups#remove'
   root :to => 'pages#home'
   get 'chores/assign'
   post 'chores/assign' => 'chores#get_user'
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
   resources :chores
   resources :users
   get 'groups/members'
-  post '/groups' => 'groups#remove'
+
   resources :groups
 
   get '/login' => 'session#new'

@@ -24,7 +24,8 @@ class GroupsController < ApplicationController
   end
 
   def members
-    # g = Group.find params['id']
+    @group = Group.find params['id']
+    
     # members_ids = g.users.ids
     # members_ids.each do { |i| user = User.find i }
 
@@ -32,6 +33,8 @@ class GroupsController < ApplicationController
 
   def remove
     @current_user.group_id = nil
+    @current_user.save
+    redirect_to groups_path
   end
 
 private

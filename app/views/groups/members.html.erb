@@ -5,6 +5,10 @@
       <div class="fill"></div>
       <div class="buffer">
 
+        <% @group.users.each do |u| %>
+          <%= u.email %>
+          test
+        <% end %>
 
       </div>
     </div>

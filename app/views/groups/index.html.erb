@@ -22,9 +22,11 @@
           <% end %>
         <% end %>
 
-        <!-- <%= form_for @groups do |f| %>
+      <% unless @current_user.group_id.nil? %>
+        <%= form_for @group do |f| %>
           <%= f.submit 'Leave Group' %>
-        <% end %> -->
+        <% end %>
+      <% end %>
 
       </div>
     </div>
