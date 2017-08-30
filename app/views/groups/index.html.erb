@@ -1,0 +1,27 @@
+<div class="form">
+  <div class="banner"><h1 class="bannerHead">Groups</h1></div>
+
+    <div class="formBackground">
+      <div class="fill"></div>
+      <div class="buffer">
+
+        <% if @current_user.group_id.nil? %>
+          <% @groups.each do |group| %>
+            <div class="group_box">
+              <%= group.name %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="group_box">
+            <%= @group.name%>
+          </div>
+
+
+
+
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

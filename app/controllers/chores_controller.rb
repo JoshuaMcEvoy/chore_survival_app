@@ -14,7 +14,6 @@ class ChoresController < ApplicationController
     cloudinary = Cloudinary::Uploader.upload( params['chore']['image'] )
     @chore = Chore.create chore_params
     @chore.image = cloudinary["url"]
-    @current_user.chores << @chore
     if
       redirect_to chores_path
     else
