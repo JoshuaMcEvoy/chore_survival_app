@@ -1,0 +1,33 @@
+<div class="form">
+  <div class="banner"><h1 class="bannerHead">Create Group</h1></div>
+
+    <div class="formBackground">
+      <!-- this is a filled div to create extra space -->
+      <div class="fill"></div>
+      <div class="buffer">
+        <!-- this will display errors if the form isn't filled out correctly -->
+        <% if flash[:error].present? %>
+          <p class="error">
+            <%= flash[:error] %>
+          </p>
+        <% end %>
+
+        <%= form_for @group do |f| %>
+          <!-- label for name -->
+          <fieldset>
+            <%= f.label :name %>
+            <div class="input-container">
+              <%= f.text_field :name, :required => true %>
+            </div>
+          </fieldset>
+          <!-- submit button -->
+          <div class="submitButtonChores">
+            <%= f.submit 'Create', :class=>'button'%>
+          </div>
+        <% end %>
+
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -13,7 +13,7 @@ g2 = Group.create :name => 'Crap Chaps'
 ###########################################
 # Associations
 
-g1.users << u1
+# g1.users << u1
 g2.users << u2
 
 u1.chores << c1
