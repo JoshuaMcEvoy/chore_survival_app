@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post 'chores/pick_chore' => 'chores#add'
   resources :chores
   resources :users
+  get 'groups/members'
+  post '/groups' => 'groups#remove'
   resources :groups
 
   get '/login' => 'session#new'

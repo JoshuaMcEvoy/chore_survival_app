@@ -41,9 +41,13 @@ class ChoresController < ApplicationController
   end
 
   def add
+    # defining the user selected
     user = User.find params['id']
+    # making the chores array into a variable so it can be interacted with
     array = params['chore_id']
+    # taking each chore from params and associating it with selected user
     array.each { |i| user.chores << (Chore.find i) }
+    # showing chores_path once finished
     redirect_to chores_path
   end
 

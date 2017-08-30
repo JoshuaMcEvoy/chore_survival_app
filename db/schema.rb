@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 20170830111652) do
   end
 
   create_table "groups_users", id: false, force: :cascade do |t|
-    t.integer "genre_id"
-    t.integer "song_id"
+    t.bigint "group_id", null: false
+    t.bigint "user_id", null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -8,18 +8,23 @@
         <% if @current_user.group_id.nil? %>
           <% @groups.each do |group| %>
             <div class="group_box">
-              <%= group.name %>
+
+
+                <%= group.name %>
+
             </div>
           <% end %>
         <% else %>
-          <div class="group_box">
-            <%= @group.name%>
-          </div>
-
-
-
-
+          <%= link_to groups_members_path(:id=>@group.id) do %>
+            <div class="group_box">
+              <%= @group.name%>
+            </div>
+          <% end %>
         <% end %>
+
+        <!-- <%= form_for @groups do |f| %>
+          <%= f.submit 'Leave Group' %>
+        <% end %> -->
 
       </div>
     </div>
