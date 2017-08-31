@@ -13,6 +13,13 @@
             <p class="chore_p_reward"><%= @chore.reward %></p>
 
             <%= link_to "Edit chore", edit_chore_path(@chore) %>
+
+
+              <%= form_for @chore do |f| %>
+                <%= f.submit 'Decline Chore' %>
+              <% end %>
+
+
             <%= link_to "Delete chore", @chore, :method => :delete, :data => {:confirm => 'Are you sure?'} %>
 
 

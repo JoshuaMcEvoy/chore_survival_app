@@ -5,10 +5,14 @@
       <div class="fill"></div>
       <div class="buffer">
 
-        <% @group.users.each do |u| %>
-          <%= u.email %>
-          test
-        <% end %>
+
+
+          <% @group.users.each do |u| %>
+            <%= link_to chores_pick_chore_path(:id=>u.id) do %>
+              <%= u.email %>
+            <% end %>
+          <% end %>
+
 
       </div>
     </div>

@@ -16,6 +16,47 @@ a {
   text-decoration: none;
 }
 
+.home_button {
+  display: inline-block;
+  background: url(home_button_normal.png) no-repeat left top;
+  height: 50px;
+  width: 50px;
+  margin-left: 30px;
+}
+.home_button:hover {
+  background: url(home_button_hover.png) no-repeat left top;
+}
+
+.signout_button {
+  display: inline-block;
+  background: url(signout_button_normal.png) no-repeat left top;
+  height: 50px;
+  width: 50px;
+}
+.signout_button:hover {
+  background: url(signout_button_hover.png) no-repeat left top;
+}
+
+.friends_button {
+  display: inline-block;
+  background: url(friends_button_normal.png) no-repeat left top;
+  height: 50px;
+  width: 50px;
+}
+.friends_button:hover {
+  background: url(friends_button_hover.png) no-repeat left top;
+}
+
+.chores_button {
+  display: inline-block;
+  background: url(chores_button_normal.png) no-repeat left top;
+  height: 50px;
+  width: 50px;
+}
+.chores_button:hover {
+  background: url(chores_button_hover.png) no-repeat left top;
+}
+
 .button {
 
 }
@@ -47,6 +88,8 @@ a {
   position: relative;
   padding-left: 36px;
   width: 281px;
+  height: 372px;
+  overflow: auto;
 }
 
 .center {
@@ -71,7 +114,6 @@ select:-webkit-autofill:focus {
 fieldset > label {
   font-size: 30px;
   -webkit-text-stroke: .5px #B07C4F;
-
 }
 
 
@@ -175,14 +217,17 @@ fieldset > label {
   background:transparent;
 }
 
-
-
 .submitButton {
   position: absolute;
+  font-family: 'Concert One', cursive;
+  font-size: 30px;
+  color: white;
   left: 81px;
-  bottom: 33px;
+  bottom: 123px;
   height: 80px;
   width: 180px;
+  border: none;
+  cursor: pointer;
   background: url(button.png) no-repeat top left;
 }
 

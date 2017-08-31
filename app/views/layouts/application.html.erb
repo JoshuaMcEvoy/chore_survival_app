@@ -2,7 +2,6 @@
 <html>
   <head>
     <link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
-    <link rel="stylesheet" href="assets/style.css">
     <title>ChoreSurvivalApp</title>
     <%= csrf_meta_tags %>
 
@@ -16,9 +15,16 @@
 
 
       <% if @current_user.present? %>
-        <%= link_to 'Home', root_path %>
-        <%= link_to "Sign out #{ @current_user.email }", login_path, :method => 'delete' %>
-        <%= link_to 'Friends', groups_path %>
+
+        <%= link_to root_path do %>
+          <div class="home_button"></div>
+        <% end %>
+        <%= link_to login_path, :method => 'delete' do %>
+          <div class="signout_button"></div>
+        <% end %>
+        <%= link_to groups_path do %>
+          <div class="friends_button"></div>
+        <% end %>
       <% else %>
         <%= link_to 'Sign up', new_user_path %>
         <%= link_to 'Sign in', login_path %>

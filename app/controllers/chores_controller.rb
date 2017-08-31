@@ -12,8 +12,11 @@ class ChoresController < ApplicationController
 
   def create
     cloudinary = Cloudinary::Uploader.upload( params['chore']['image'] )
+
     @chore = Chore.create chore_params
     @chore.image = cloudinary["url"]
+    @chore.save
+    # raise 'hell'
     if
       redirect_to chores_path
     else
@@ -26,8 +29,11 @@ class ChoresController < ApplicationController
   end
 
   def update
-    chore = Chore.find params[:id]
-    chore.update chore_params
+    cloudinary = Cloudinary::Uploader.upload( params['chore']['image'] )
+    @chore = Chore.find params['id']
+    @chore.update chore_params
+    @chore.image = cloudinary["url"]
+    @chore.save
     redirect_to chores_path
   end
 
@@ -46,9 +52,15 @@ class ChoresController < ApplicationController
     # making the chores array into a variable so it can be interacted with
     array = params['chore_id']
     # taking each chore from params and associating it with selected user
-    array.each { |i| user.chores << (Chore.find i) }
+    array.each { |i|
+      unless user.chores.ids.include? i
+        user.chores << (Chore.find i)
+      else
+        puts "Already assigned chore: #{(Chore.find i).name}"
+      end
+    }
     # showing chores_path once finished
-    redirect_to chores_path
+    redirect_to groups_path
   end
 
   def get_user
@@ -63,8 +75,13 @@ class ChoresController < ApplicationController
     redirect_to chores_path
   end
 
+  def remove
+    @current_user.chores.delete params['id']
+    redirect_to chores_path
+  end
+
   private
   def chore_params
-    params['chore'].permit(:name, :description, :reward, :image)
+    params['chore'].permit(:name, :description, :reward)
   end
 end
