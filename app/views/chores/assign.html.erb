@@ -3,29 +3,49 @@
 
     <div class="formBackground">
       <div class="fill"></div>
-      <div class="buffer">
+      <div class="buffer_background">
+        <div class="buffer">
 
-        <%= form_tag chores_assign_path do %>
-          <fieldset>
-            <%= label_tag :search %>
-            <div class="input-container">
-              <%= email_field_tag :email, nil %>
+          <%= form_tag chores_assign_path do %>
+            <fieldset>
+              <%= label_tag :search %>
+              <div class="input-container">
+                <%= email_field_tag :email, nil %>
+              </div>
+            </fieldset>
+            <%= submit_tag 'Search' %>
+          <% end %>
+
+        <% if @user.present?  %>
+          <%= link_to chores_pick_chore_path(:id=>@user.id) do %>
+            <div class="user_button">
+              <p><%= @user.email %></p>
             </div>
-          </fieldset>
-          <%= submit_tag 'Search' %>
+          <% end %>
+        <% else %>
+          <p>Search for a friend by their email address</p>
         <% end %>
 
-      <% if @user.present?  %>
-        <%= link_to chores_pick_chore_path(:id=>@user.id) do %>
-          <div class="user_button">
-            <p><%= @user.email %></p>
-          </div>
-        <% end %>
-      <% else %>
-        <p>Search for a friend by their email address</p>
-      <% end %>
-
+        </div>
       </div>
+
+      <!-- navigation -->
+      <div class="nav_bar">
+        <%= link_to root_path do %>
+          <div class="home_button"></div>
+        <% end %>
+        <%= link_to login_path, :method => 'delete' do %>
+          <div class="signout_button"></div>
+        <% end %>
+        <%= link_to groups_path do %>
+          <div class="friends_button"></div>
+        <% end %>
+        <%= link_to chores_path do %>
+          <div class="chores_button"></div>
+        <% end %>
+      </div>
+
+
     </div>
   </div>
 </div>

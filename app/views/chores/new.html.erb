@@ -3,45 +3,65 @@
 
   <div class="formBackground">
     <div class="fill"></div>
-    <div class="buffer">
-      <% if flash[:error].present? %>
-        <p class="error">
-          <%= flash[:error] %>
-        </p>
-      <% end %>
+    <div class="buffer_background">
+      <div class="buffer">
+        <% if flash[:error].present? %>
+          <p class="error">
+            <%= flash[:error] %>
+          </p>
+        <% end %>
 
-      <%= form_for @chore, :html => {:multipart => true} do |f| %>
-      <fieldset>
-        <%= f.label :name %>
-        <div class="input-container">
-          <%= f.text_field :name%>
-        </div>
-      </fieldset>
-      <fieldset>
-        <%= f.label :description %>
-        <div class="input-container">
-          <%= f.text_field :description %>
-        </div>
-      </fieldset>
-      <fieldset>
-        <%= f.label :reward %>
-        <div class="input-container">
-          <%= f.text_field :reward %>
-        </div>
-      </fieldset>
-      <fieldset>
-        <%= f.label :image %>
-        <div class="input-container">
-          <%= f.file_field :image, id: :image_link %>
-        </div>
-      </fieldset>
+        <%= form_for @chore, :html => {:multipart => true} do |f| %>
+        <fieldset>
+          <%= f.label :name %>
+          <div class="input-container">
+            <%= f.text_field :name%>
+          </div>
+        </fieldset>
+        <fieldset>
+          <%= f.label :description %>
+          <div class="input-container">
+            <%= f.text_field :description %>
+          </div>
+        </fieldset>
+        <fieldset>
+          <%= f.label :reward %>
+          <div class="input-container">
+            <%= f.text_field :reward %>
+          </div>
+        </fieldset>
+        <fieldset>
+          <%= f.label :image %>
+          <div class="input-container">
+            <%= f.file_field :image, id: :image_link, :class=>'button' %>
+          </div>
+        </fieldset>
 
-      <div class="submitButtonChores">
-        <%= f.submit 'Create', :class=>'button'%>
+        <!-- <div class="submitButtonChores"> -->
+          <%= f.submit 'Create', :class=>'button', :id=>'create_button'%>
+        <!-- </div> -->
+        <% end  %>
+
+
       </div>
-      <% end  %>
-
-
     </div>
+
+    <!-- navigation -->
+    <div class="nav_bar">
+      <%= link_to root_path do %>
+        <div class="home_button"></div>
+      <% end %>
+      <%= link_to login_path, :method => 'delete' do %>
+        <div class="signout_button"></div>
+      <% end %>
+      <%= link_to groups_path do %>
+        <div class="friends_button"></div>
+      <% end %>
+      <%= link_to chores_path do %>
+        <div class="chores_button"></div>
+      <% end %>
+    </div>
+
+
   </div>
 </div>

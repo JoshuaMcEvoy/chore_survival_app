@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   patch '/groups/:id' => 'groups#remove'
   patch '/chore/remove' => 'chores#remove'
+  post 'groups' => 'groups#search'
+  post '/groups/members' => 'groups#join'
   root :to => 'pages#home'
   get 'chores/assign'
   post 'chores/assign' => 'chores#get_user'

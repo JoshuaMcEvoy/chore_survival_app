@@ -3,32 +3,63 @@
 
     <div class="formBackground">
       <div class="fill"></div>
-      <div class="buffer">
+      <div class="buffer_background">
+        <div class="buffer">
 
-        <% if @current_user.group_id.nil? %>
-          <% @groups.each do |group| %>
-            <div class="group_box">
+          <% if @current_user.group_id.nil? %>
+
+                <%= form_tag groups_path do %>
+                  <fieldset>
+                    <%= label_tag :search %>
+                    <div class="input-container">
+                      <%= text_field_tag :name %>
+                    </div>
+                  </fieldset>
+                  <%= submit_tag 'Search' %>
+                <% end %>
+
+                <% if @group.present? %>
+                  <%= link_to groups_members_path(:id=>@group.id) do %>
+                    <div class="user_button">
+                      <%= @group.name %>
+                    </div>
+                  <% end %>
+                <% end %>
 
 
-                <%= group.name %>
-
-            </div>
+          <% else %>
+            <%= link_to groups_members_path(:id=>@group.id) do %>
+              <div class="group_box">
+                <p class="group_name"><%= @group.name%></p>
+              </div>
+            <% end %>
           <% end %>
-        <% else %>
-          <%= link_to groups_members_path(:id=>@group.id) do %>
-            <div class="group_box">
-              <%= @group.name%>
-            </div>
+
+        <% unless @current_user.group_id.nil? %>
+          <%= form_for @group do |f| %>
+            <%= f.submit 'Leave Group' %>
           <% end %>
         <% end %>
 
-      <% unless @current_user.group_id.nil? %>
-        <%= form_for @group do |f| %>
-          <%= f.submit 'Leave Group' %>
-        <% end %>
-      <% end %>
-
+        </div>
       </div>
+
+      <!-- navigation -->
+      <div class="nav_bar">
+        <%= link_to root_path do %>
+          <div class="home_button"></div>
+        <% end %>
+        <%= link_to login_path, :method => 'delete' do %>
+          <div class="signout_button"></div>
+        <% end %>
+        <%= link_to groups_path do %>
+          <div class="friends_button"></div>
+        <% end %>
+        <%= link_to chores_path do %>
+          <div class="chores_button"></div>
+        <% end %>
+      </div>
+
     </div>
   </div>
 </div>

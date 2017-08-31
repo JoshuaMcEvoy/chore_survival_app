@@ -23,11 +23,22 @@ class GroupsController < ApplicationController
     end
   end
 
+  def join
+    g = Group.find params['id']
+    g.users << @current_user
+    redirect_to groups_path
+  end
+
+  def search
+    @group = Group.find_by(name: params[:name])
+
+    render :index
+  end
+
   def members
+    # raise 'hell'
     @group = Group.find params['id']
-    
-    # members_ids = g.users.ids
-    # members_ids.each do { |i| user = User.find i }
+
 
   end
 

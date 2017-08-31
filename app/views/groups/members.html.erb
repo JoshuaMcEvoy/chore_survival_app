@@ -3,18 +3,46 @@
 
     <div class="formBackground">
       <div class="fill"></div>
-      <div class="buffer">
+      <div class="buffer_background">
+        <div class="buffer">
 
+          <% if @group.id.present?  %>
 
-
-          <% @group.users.each do |u| %>
-            <%= link_to chores_pick_chore_path(:id=>u.id) do %>
-              <%= u.email %>
+            <%= form_tag groups_members_path do %>
+            <%= hidden_field_tag :id, params['id'] %>
+              <%= submit_tag 'Join' %>
             <% end %>
+
+
+            <% @group.users.each do |u| %>
+              <%= link_to chores_pick_chore_path(:id=>u.id) do %>
+                <div class="group_box">
+                  <p class="group_name"><%= u.email %></p>
+                </div>
+              <% end %>
+            <% end %>
+
           <% end %>
 
-
+        </div>
       </div>
+
+      <!-- navigation -->
+      <div class="nav_bar">
+        <%= link_to root_path do %>
+          <div class="home_button"></div>
+        <% end %>
+        <%= link_to login_path, :method => 'delete' do %>
+          <div class="signout_button"></div>
+        <% end %>
+        <%= link_to groups_path do %>
+          <div class="friends_button"></div>
+        <% end %>
+        <%= link_to chores_path do %>
+          <div class="chores_button"></div>
+        <% end %>
+      </div>
+
     </div>
   </div>
 </div>

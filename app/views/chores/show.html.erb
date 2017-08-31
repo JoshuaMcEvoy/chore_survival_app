@@ -3,27 +3,48 @@
 
     <div class="formBackground">
       <div class="fill"></div>
-      <div class="buffer">
+      <div class="buffer_background">
+        <div class="buffer">
 
-        <div class="img_feature_background">
-          <%= cl_image_tag(@chore.image, :width=>260, :height=>142, :gravity=>"face", :crop=>"crop", :class=>"img_feature") unless @chore.image.nil?%>
+          <div class="img_feature_background">
+            <%= cl_image_tag(@chore.image, :width=>260, :height=>142, :gravity=>"face", :crop=>"crop", :class=>"img_feature") unless @chore.image.nil?%>
+          </div>
+              <p class="chore_p_name"><%= @chore.name %></p>
+              <p class="chore_p_description"><%= @chore.description %></p>
+              <p class="chore_p_reward"><%= @chore.reward %></p>
+
+              <%= link_to "Edit chore", edit_chore_path(@chore) %>
+
+
+                <%= form_for @chore do |f| %>
+                  <%= f.submit 'Decline Chore' %>
+                <% end %>
+
+
+              <%= link_to "Delete chore", @chore, :method => :delete, :data => {:confirm => 'Are you sure?'} %>
+
+
         </div>
-            <p class="chore_p_name"><%= @chore.name %></p>
-            <p class="chore_p_description"><%= @chore.description %></p>
-            <p class="chore_p_reward"><%= @chore.reward %></p>
-
-            <%= link_to "Edit chore", edit_chore_path(@chore) %>
-
-
-              <%= form_for @chore do |f| %>
-                <%= f.submit 'Decline Chore' %>
-              <% end %>
-
-
-            <%= link_to "Delete chore", @chore, :method => :delete, :data => {:confirm => 'Are you sure?'} %>
-
-
       </div>
+
+
+      <!-- navigation -->
+      <div class="nav_bar">
+        <%= link_to root_path do %>
+          <div class="home_button"></div>
+        <% end %>
+        <%= link_to login_path, :method => 'delete' do %>
+          <div class="signout_button"></div>
+        <% end %>
+        <%= link_to groups_path do %>
+          <div class="friends_button"></div>
+        <% end %>
+        <%= link_to chores_path do %>
+          <div class="chores_button"></div>
+        <% end %>
+      </div>
+
+
     </div>
   </div>
 </div>

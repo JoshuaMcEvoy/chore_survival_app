@@ -16,12 +16,18 @@ a {
   text-decoration: none;
 }
 
+/* START NAV BUTTONS*/
+
+.nav_bar {
+  margin-top: 9px;
+}
+
 .home_button {
   display: inline-block;
   background: url(home_button_normal.png) no-repeat left top;
-  height: 50px;
-  width: 50px;
-  margin-left: 30px;
+  height: 60px;
+  width: 60px;
+  margin-left: 42px;
 }
 .home_button:hover {
   background: url(home_button_hover.png) no-repeat left top;
@@ -30,8 +36,8 @@ a {
 .signout_button {
   display: inline-block;
   background: url(signout_button_normal.png) no-repeat left top;
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
 }
 .signout_button:hover {
   background: url(signout_button_hover.png) no-repeat left top;
@@ -40,8 +46,8 @@ a {
 .friends_button {
   display: inline-block;
   background: url(friends_button_normal.png) no-repeat left top;
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
 }
 .friends_button:hover {
   background: url(friends_button_hover.png) no-repeat left top;
@@ -50,16 +56,39 @@ a {
 .chores_button {
   display: inline-block;
   background: url(chores_button_normal.png) no-repeat left top;
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
 }
 .chores_button:hover {
   background: url(chores_button_hover.png) no-repeat left top;
 }
 
-.button {
 
+.button {
+  background: url(button_log.png) no-repeat left top;
+  position: absolute;
+  text-align: center;
+  font-family: 'Concert One', cursive;
+  font-size: 30px;
+  color: white;
+  height: 60px;
+  width: 135px;
+  border: none;
+  cursor: pointer;
 }
+
+#sign_in {
+  bottom: 50px;
+  left: 178px;
+}
+#sign_out {
+  bottom: 50px;
+  left: 34px;
+}
+
+
+/* END NAV BUTTONS*/
+
 
 .chore_button > a {
   color: white;
@@ -86,16 +115,53 @@ a {
 
 .buffer {
   position: relative;
-  padding-left: 36px;
+  padding: 10px;
+  top: 8px;
   width: 281px;
-  height: 372px;
+  height: 340px;
   overflow: auto;
+}
+
+.buffer_background {
+  background: url(buffer_background.png) no-repeat left top;
+  position: relative;
+  left: 25px;
+  width: 305px;
+  height: 379px;
 }
 
 .center {
   margin-top: 106px;
   width: 283px;
   text-align: center;
+}
+
+.group_name {
+  position: absolute;
+  top: -26px;
+  left: 52px;
+  color: white;
+  -webkit-text-stroke: .5px #B07C4F;
+  font-size: 29px;
+}
+
+#create_button {
+  position: absolute;
+  bottom: -23px;
+  left: 76px;
+}
+
+.center_text {
+  text-align: center;
+}
+
+.group_box {
+  background: url(groups_button.png) no-repeat left top;
+  height: 50px;
+  width: 290px;
+  border-radius: 8px;
+  left: 5px;
+  position: absolute;
 }
 
 input:-webkit-autofill,
@@ -172,6 +238,7 @@ fieldset > label {
 
 .formBackground {
   background: url(formBackground.png) no-repeat left top;
+  position: relative;
   margin: 0 auto;
   height: 563px;
   width: 372px;
@@ -222,13 +289,18 @@ fieldset > label {
   font-family: 'Concert One', cursive;
   font-size: 30px;
   color: white;
-  left: 81px;
-  bottom: 123px;
+  left: 53px;
+  bottom: 102px;
   height: 80px;
   width: 180px;
   border: none;
   cursor: pointer;
   background: url(button.png) no-repeat top left;
+}
+
+#signUp_button {
+  bottom: 29px;
+  left: 56px;
 }
 
 .submitButtonChores {

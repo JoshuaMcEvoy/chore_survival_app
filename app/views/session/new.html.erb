@@ -3,33 +3,35 @@
 
   <div class="formBackground">
     <div class="fill"></div>
-    <div class="buffer">
-      <% if flash[:error].present? %>
-        <p class="error">
-          <%= flash[:error] %>
-        </p>
-      <% end %>
+    <div class="buffer_background">
+      <div class="buffer">
+        <% if flash[:error].present? %>
+          <p class="error">
+            <%= flash[:error] %>
+          </p>
+        <% end %>
 
-      <%= form_tag login_path do %>
-      <fieldset>
-        <%= label_tag :email %>
-        <div class="input-container">
-          <%= email_field_tag :email, nil%>
-        </div>
-      </fieldset>
-      <fieldset>
-        <%= label_tag :password %>
-        <div class="input-container">
-          <%= password_field_tag :password, nil %>
-        </div>
-      </fieldset>
-      <!-- <div class="submitButton"> -->
-        <%= submit_tag 'Login', :class=>'submitButton' %>
-      <!-- </div> -->
-      <% end  %>
+        <%= form_tag login_path do %>
+        <fieldset>
+          <%= label_tag :email %>
+          <div class="input-container">
+            <%= email_field_tag :email, nil%>
+          </div>
+        </fieldset>
+        <fieldset>
+          <%= label_tag :password %>
+          <div class="input-container">
+            <%= password_field_tag :password, nil %>
+          </div>
+        </fieldset>
+        <!-- <div class="submitButton"> -->
+          <%= submit_tag 'Login', :class=>'submitButton' %>
+        <!-- </div> -->
+        <% end  %>
 
-      <div class="center">
-        <%= link_to 'Not a member yet? Sign up here!', new_user_path %>
+        <div class="center">
+          <%= link_to 'Not a member yet? Sign up here!', new_user_path %>
+        </div>
       </div>
     </div>
   </div>

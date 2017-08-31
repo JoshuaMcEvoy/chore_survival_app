@@ -3,24 +3,45 @@
 
     <div class="formBackground">
       <div class="fill"></div>
-      <div class="buffer">
+      <div class="buffer_background">
+        <div class="buffer">
 
-  <%= form_tag chores_pick_chore_path do %>
-        <%= hidden_field_tag :id, params['id'] %>
-        <% @chores.each do |chore| %>
+          <%= form_tag chores_pick_chore_path do %>
+          <%= hidden_field_tag :id, params['id'] %>
+          <% @chores.each do |chore| %>
 
-            <div class="chore_button">
-              <%= check_box_tag 'chore_id[]', chore.id %>
-              <%= cl_image_tag(chore.image, :width=>58, :height=>59, :gravity=>"face", :crop=>"crop", :class=>"img_thumb") unless chore.image.nil?%>
-                <p class="chore_p_name"><%= chore.name %></p>
-                <p class="chore_p_description"><%= chore.description %></p>
-                <p class="chore_p_reward"><%= chore.reward %></p>
-            </div>
+              <div class="chore_button">
+                <%= check_box_tag 'chore_id[]', chore.id %>
+                <%= cl_image_tag(chore.image, :width=>58, :height=>59, :gravity=>"face", :crop=>"crop", :class=>"img_thumb") unless chore.image.nil?%>
+                  <p class="chore_p_name"><%= chore.name %></p>
+                  <p class="chore_p_description"><%= chore.description %></p>
+                  <p class="chore_p_reward"><%= chore.reward %></p>
+              </div>
 
+          <% end %>
+          <%= submit_tag 'Assign' %>
+          <% end %>
+        </div>
+      </div>
+
+
+      <!-- navigation -->
+      <div class="nav_bar">
+        <%= link_to root_path do %>
+          <div class="home_button"></div>
         <% end %>
-        <%= submit_tag 'Assign' %>
+        <%= link_to login_path, :method => 'delete' do %>
+          <div class="signout_button"></div>
+        <% end %>
+        <%= link_to groups_path do %>
+          <div class="friends_button"></div>
+        <% end %>
+        <%= link_to chores_path do %>
+          <div class="chores_button"></div>
         <% end %>
       </div>
+
+
     </div>
   </div>
 </div>

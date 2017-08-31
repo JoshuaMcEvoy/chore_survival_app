@@ -3,21 +3,42 @@
 
     <div class="formBackground">
       <div class="fill"></div>
-      <div class="buffer">
+      <div class="buffer_background">
+        <div class="buffer">
 
-        <% @current_user.chores.each do |chores| %>
-          <%= link_to chore_path(chores.id) do %>
-            <div class="chore_button">
-              <%= cl_image_tag(chores.image, :width=>58, :height=>59, :gravity=>"face", :crop=>"crop", :class=>"img_thumb") unless chores.image.nil?%>
-                <p class="chore_p_name"><%= chores.name %></p>
-                <p class="chore_p_description"><%= chores.description %></p>
-                <p class="chore_p_reward"><%= chores.reward %></p>
-            </div>
+          <% @current_user.chores.each do |chores| %>
+            <%= link_to chore_path(chores.id) do %>
+              <div class="chore_button">
+                <%= cl_image_tag(chores.image, :width=>58, :height=>59, :gravity=>"face", :crop=>"crop", :class=>"img_thumb") unless chores.image.nil?%>
+                  <p class="chore_p_name"><%= chores.name %></p>
+                  <p class="chore_p_description"><%= chores.description %></p>
+                  <p class="chore_p_reward"><%= chores.reward %></p>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
 
 
+        </div>
       </div>
+
+
+      <!-- navigation -->
+      <div class="nav_bar">
+        <%= link_to root_path do %>
+          <div class="home_button"></div>
+        <% end %>
+        <%= link_to login_path, :method => 'delete' do %>
+          <div class="signout_button"></div>
+        <% end %>
+        <%= link_to groups_path do %>
+          <div class="friends_button"></div>
+        <% end %>
+        <%= link_to chores_path do %>
+          <div class="chores_button"></div>
+        <% end %>
+      </div>
+
+
     </div>
   </div>
 </div>

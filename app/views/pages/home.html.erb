@@ -3,37 +3,45 @@
 
   <div class="formBackground">
     <div class="fill"></div>
-    <div class="buffer">
+    <div class="buffer_background">
+      <div class="buffer">
 
 
 
 
 
-    <% if @current_user.present? %>
-      <%= link_to 'Chores', chores_path %>
-      <%= link_to 'Create Chore', new_chore_path %>
-      <%= link_to 'Assign Chore', chores_assign_path %>
-      <p>Welcome back <%= @current_user.email %></p>
-    <% else %>
-      Sign in to play!
-    <% end %>
+          <% if @current_user.present? %>
+            <%= link_to 'Chores', chores_path %>
+            <%= link_to 'Create Chore', new_chore_path %>
+            <%= link_to 'Assign Chore', chores_assign_path %>
+            <p>Welcome back <%= @current_user.email %></p>
+          <% else %>
+            Sign in to play!
+          <% end %>
 
       </div>
+    </div>
 
-    <!-- navigation -->
-
-    <%= link_to root_path do %>
-      <div class="home_button"></div>
-    <% end %>
-    <%= link_to login_path, :method => 'delete' do %>
-      <div class="signout_button"></div>
-    <% end %>
-    <%= link_to groups_path do %>
-      <div class="friends_button"></div>
-    <% end %>
-    <%= link_to chores_path do %>
-      <div class="chores_button"></div>
-    <% end %>
+      <!-- navigation -->
+      <% if @current_user.present? %>
+        <div class="nav_bar">
+          <%= link_to root_path do %>
+            <div class="home_button"></div>
+          <% end %>
+          <%= link_to login_path, :method => 'delete' do %>
+            <div class="signout_button"></div>
+          <% end %>
+          <%= link_to groups_path do %>
+            <div class="friends_button"></div>
+          <% end %>
+          <%= link_to chores_path do %>
+            <div class="chores_button"></div>
+          <% end %>
+        </div>
+      <% else %>
+        <%= link_to 'Sign up', new_user_path, :class=>"button", :id=>"sign_in" %>
+        <%= link_to 'Sign in', login_path, :class=>"button", :id=>"sign_out" %>
+      <% end %>
 
     </div>
   </div>
