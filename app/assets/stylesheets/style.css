@@ -16,6 +16,8 @@ a {
   text-decoration: none;
 }
 
+
+
 /* START NAV BUTTONS*/
 
 .nav_bar {
@@ -301,6 +303,12 @@ fieldset > label {
 #signUp_button {
   bottom: 29px;
   left: 56px;
+}
+
+#creat_button {
+  position: absolute;
+  top: 100px;
+  left: 70px;
 }
 
 .submitButtonChores {

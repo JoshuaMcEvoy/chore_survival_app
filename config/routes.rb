@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/groups/new' => 'groups#create'
   patch '/groups/:id' => 'groups#remove'
   patch '/chore/remove' => 'chores#remove'
   post 'groups' => 'groups#search'

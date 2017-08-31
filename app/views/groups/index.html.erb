@@ -8,23 +8,25 @@
 
           <% if @current_user.group_id.nil? %>
 
-                <%= form_tag groups_path do %>
-                  <fieldset>
-                    <%= label_tag :search %>
-                    <div class="input-container">
-                      <%= text_field_tag :name %>
-                    </div>
-                  </fieldset>
-                  <%= submit_tag 'Search' %>
-                <% end %>
+            <%= form_tag groups_path do %>
+              <fieldset>
+                <%= label_tag :search %>
+                <div class="input-container">
+                  <%= text_field_tag :name %>
+                </div>
+              </fieldset>
+              <%= submit_tag 'Search' %>
+            <% end %>
 
-                <% if @group.present? %>
-                  <%= link_to groups_members_path(:id=>@group.id) do %>
-                    <div class="user_button">
-                      <%= @group.name %>
-                    </div>
-                  <% end %>
-                <% end %>
+            <%= link_to 'Create Group', new_group_path %>
+
+          <% if @group.present? %>
+            <%= link_to groups_members_path(:id=>@group.id) do %>
+              <div class="user_button">
+                <%= @group.name %>
+              </div>
+            <% end %>
+          <% end %>
 
 
           <% else %>

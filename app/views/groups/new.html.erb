@@ -13,18 +13,18 @@
             </p>
           <% end %>
 
-          <%= form_for @group do |f| %>
+          <%= form_tag groups_new_path do %>
             <!-- label for name -->
             <fieldset>
-              <%= f.label :name %>
+              <%= label_tag :name %>
               <div class="input-container">
-                <%= f.text_field :name, :required => true %>
+                <%= text_field_tag :name, nil %>
               </div>
             </fieldset>
             <!-- submit button -->
-            <div class="submitButtonChores">
-              <%= f.submit 'Create', :class=>'button'%>
-            </div>
+
+              <%= submit_tag 'Create', :class=>'button', :id=>'creat_button'%>
+
           <% end %>
 
 

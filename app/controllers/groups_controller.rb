@@ -12,7 +12,8 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new group_params
+    @group = Group.new
+    @group.name = params[:name]
     if @group.save
       # This will associate the group to the user that has created it automatically
       group = Group.find @group.id
@@ -24,6 +25,7 @@ class GroupsController < ApplicationController
   end
 
   def join
+
     g = Group.find params['id']
     g.users << @current_user
     redirect_to groups_path
@@ -43,6 +45,7 @@ class GroupsController < ApplicationController
   end
 
   def remove
+
     @current_user.group_id = nil
     @current_user.save
     redirect_to groups_path

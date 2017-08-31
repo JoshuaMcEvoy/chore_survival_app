@@ -16,7 +16,7 @@
             <%= link_to 'Assign Chore', chores_assign_path %>
             <p>Welcome back <%= @current_user.email %></p>
           <% else %>
-            Sign in to play!
+            <%= image_tag("coverimage.gif", :width=>280, :height=>320, :crop=>"scale", ) %>
           <% end %>
 
       </div>
